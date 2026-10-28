@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BisnisKu - Solusi Bisnis Modern</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #431407;
+            --accent: #FDBA74;
+            --accent-hover: #FB923C;
+            --text-main: #44403c;
+            --text-light: #78716c;
+            --bg-light: #FFF7ED;
+            --white: #ffffff;
+            --border: #FED7AA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .top-bar {
+            background: var(--primary);
+            color: var(--white);
+            font-size: 13px;
+            padding: 8px 0;
+        }
+
+        .top-bar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span { color: var(--accent-hover); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--text-main);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--accent-hover); }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            color: var(--white);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(67, 20, 7, 0.80), rgba(67, 20, 7, 0.80)),
+            url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80') center/cover;
+            color: var(--white);
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 35px auto;
+            color: #FFEDD5;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 90px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header span {
+            color: var(--accent-hover);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .stats-section {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px 20px;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            color: #FED7AA;
+            font-size: 14px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80') center/cover;
+            border-radius: 12px;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .testimonials {
+            background: #FFEDD5;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .client-info h4 {
+            font-size: 16px;
+            color: var(--primary);
+        }
+
+        .client-info span {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+
+        .contact-info {
+            background: var(--primary);
+            color: var(--white);
+            padding: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: #FED7AA;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .contact-form-container { padding: 50px; }
+
+        .form-group { margin-bottom: 20px; }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-hover);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        footer {
+            background: #1C0A04;
+            color: #FED7AA;
+            padding: 40px 20px 20px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 1px solid #431407;
+            padding-bottom: 30px;
+        }
+
+        .footer-logo {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 32px; }
+            .about-grid, .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <span>📞 Hubungi Kami: +62 812-3456-7890</span>
+            <span>✉️ info@bisnisku.co.id</span>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Bisnis<span>Ku</span>.</a>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#testimonials">Testimoni</a></li>
+                <li><a href="#contact" class="btn-primary">Hubungi Kami</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Kembangkan Bisnis Anda Bersama BisnisKu</h1>
+        <p>Kami membantu pelaku usaha mengembangkan strategi pemasaran, meningkatkan penjualan, dan membangun bisnis yang lebih maju di era digital.</p>
+        <div class="hero-btns">
+            <a href="#services" class="btn-primary">Lihat Layanan</a>
+            <a href="#contact" class="btn-outline">Mulai Konsultasi</a>
+        </div>
+    </section>
+
+    <!-- Statistik Section -->
+    <div class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>5+</h3>
+                <p>Tahun Pengalaman</p>
+            </div>
+            <div class="stat-item">
+                <h3>200+</h3>
+                <p>Pelanggan Terlayani</p>
+            </div>
+            <div class="stat-item">
+                <h3>95%</h3>
+                <p>Kepuasan Pelanggan</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Layanan Pelanggan</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tentang Kami -->
+    <section id="about" class="container">
+        <div class="about-grid">
+            <div class="about-image"></div>
+            <div class="about-text">
+                <div class="section-header" style="text-align: left; margin-bottom: 20px;">
+                    <span>Tentang BisnisKu</span>
+                    <h3>Mitra Usaha untuk Meraih Kesuksesan</h3>
+                </div>
+                <p>BisnisKu hadir untuk membantu para pengusaha menghadapi persaingan pasar. Kami menyediakan solusi praktis agar usaha dapat berkembang dan menjangkau lebih banyak pelanggan.</p>
+                <p>Dengan strategi yang tepat dan pelayanan profesional, kami berkomitmen mendukung pertumbuhan bisnis secara berkelanjutan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan -->
+    <section id="services" class="container" style="padding-top: 0;">
+        <div class="section-header">
+            <span>Layanan Unggulan</span>
+            <h2>Solusi untuk Mengembangkan Usaha</h2>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Konsultasi Bisnis</h3>
+                <p>Membantu merencanakan strategi usaha, mengelola keuangan, dan menentukan langkah untuk mengembangkan bisnis.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📢</div>
+                <h3>Pemasaran Digital</h3>
+                <p>Membantu mempromosikan produk melalui media sosial dan internet agar dapat menjangkau lebih banyak pelanggan.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🛒</div>
+                <h3>Pengembangan Penjualan</h3>
+                <p>Mendukung peningkatan penjualan melalui pelayanan pelanggan, strategi promosi, dan pengembangan produk.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span>Testimoni Pelanggan</span>
+                <h2>Apa Kata Pelanggan Kami?</h2>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Berkat arahan dari BisnisKu, usaha makanan kami menjadi lebih dikenal dan jumlah pelanggan meningkat."</p>
+                    <div class="client-info">
+                        <h4>Andi Pratama</h4>
+                        <span>Pemilik Usaha Kuliner</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p>"Strategi pemasaran digitalnya sangat membantu kami mempromosikan produk melalui media sosial."</p>
+                    <div class="client-info">
+                        <h4>Siti Amelia</h4>
+                        <span>Pengusaha Fashion</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p>"Pelayanan yang baik dan solusi yang diberikan membantu usaha kami berkembang lebih terarah."</p>
+                    <div class="client-info">
+                        <h4>Rizky Maulana</h4>
+                        <span>Pemilik Toko Online</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" class="container">
+        <div class="section-header">
+            <span>Hubungi Kami</span>
+            <h2>Mari Kembangkan Bisnis Anda</h2>
+        </div>
+
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Informasi Kontak</h3>
+                <p>Hubungi kami untuk mendapatkan informasi mengenai layanan pengembangan usaha.</p>
+                <div class="info-item">📍 Jl. Jenderal Sudirman, Jakarta</div>
+                <div class="info-item">📞 +62 812-3456-7890</div>
+                <div class="info-item">✉️ info@bisnisku.co.id</div>
+                <div class="info-item">🕒 Senin - Jumat: 08.00 - 17.00 WIB</div>
+            </div>
+
+            <div class="contact-form-container">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" placeholder="Masukkan nama Anda" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Alamat Email</label>
+                        <input type="email" id="email" placeholder="nama@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon / WhatsApp</label>
+                        <input type="tel" id="phone" placeholder="0812xxxxxxxx" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Pesan / Kebutuhan Bisnis</label>
+                        <textarea id="message" placeholder="Tuliskan kebutuhan bisnis Anda..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">BisnisKu.</div>
+            <p>Mitra usaha untuk membantu bisnis tumbuh dan berkembang.</p>
+        </div>
+        <p>&copy; 2026 BisnisKu. Hak Cipta Dilindungi.</p>
+    </footer>
+
+</body>
+</html>
